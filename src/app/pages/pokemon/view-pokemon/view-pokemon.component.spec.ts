@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ViewPokemonComponent } from './view-pokemon.component';
 import {RouterModule} from "@angular/router";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('ViewPokemonComponent', () => {
   let component: ViewPokemonComponent;
@@ -9,7 +10,7 @@ describe('ViewPokemonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ ViewPokemonComponent, RouterModule.forRoot([]) ]
+      imports: [ ViewPokemonComponent, HttpClientTestingModule, RouterModule.forRoot([]) ]
     })
       .compileComponents();
 

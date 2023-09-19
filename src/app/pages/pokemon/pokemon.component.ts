@@ -9,7 +9,7 @@ import {PokemonService} from "../../services/pokemon.service";
 import {SearchPokemonComponent} from "./search-pokemon/search-pokemon.component";
 
 // RxJs
-import {Observable} from "rxjs";
+import {BehaviorSubject, Observable, Subject} from "rxjs";
 
 // States
 import {AppState} from "../../state/app.state";
@@ -18,6 +18,8 @@ import {AppState} from "../../state/app.state";
 import { Store } from "@ngrx/store";
 import { selectLoading, selectPokemonList } from "../../state/selectors/pokemon.selector";
 import { isLoading} from "../../state/actions/pokemon.actions";
+
+// Filter
 import {FilterPipe} from "../../pipes/filter.pipe";
 
 @Component({
@@ -38,7 +40,7 @@ export class PokemonComponent implements OnInit {
   // NgRx
   store = inject(Store<AppState>);
   loading$: Observable<boolean> = new Observable();
-  pokemon$: Observable<any> = new Observable();
+  pokemon$: Observable<any> = new BehaviorSubject([]);
 
   // Filter parameters
   page = 0;
