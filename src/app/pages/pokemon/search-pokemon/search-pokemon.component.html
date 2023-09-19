@@ -1,3 +1,6 @@
 <div class="search-container" [formGroup]="group">
   <input formControlName="search" class="search-input" type="text" placeholder="Search" />
+  <div *ngIf="checkMinLengthForm('search')" class="invalid-feedback bottom-2-space">
+    Must be longer than {{ group.get('search')?.errors?.['minlength']?.['requiredLength'] }} characters.
+  </div>
 </div>

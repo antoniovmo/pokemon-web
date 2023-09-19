@@ -26,7 +26,7 @@ export class PokemonService {
   }
 
   fetchAllPokemon(): Observable<ResultPokemon[]> {
-    return this.http.get<FetchAllPokemon>(`${ this.url }/pokemon?limit=100`)
+    return this.http.get<FetchAllPokemon>(`${ this.url }/pokemon?limit=1500`)
       .pipe(map( this.transformResultPokemon ),catchError(this.catchErrors))
   }
 

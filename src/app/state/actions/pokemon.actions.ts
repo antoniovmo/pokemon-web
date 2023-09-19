@@ -7,7 +7,7 @@ export const isLoading = createAction(
   '[PokeAPI] is loading'
 );
 
-export const fetchedPokemonList= createAction(
+export const fetchedPokemonList = createAction(
   '[PokeAPI] items loaded successfully',
   props<{pokemon: ResultPokemon[]}>()
 );

@@ -1,12 +1,13 @@
 <div class="card-section">
   <app-search-pokemon (searchEvent)="filterPokemonList($event)"></app-search-pokemon>
-  <a class="button-style" >Previous</a>
-  <a class="button-style" >Next</a>
+  <a class="button-style" (click)="prevPage()">Previous</a>
+  <a class="button-style"  (click)="nextPage()">Next</a>
+
 
 
   <h1 *ngIf="loading$ | async">Loading</h1>
 
-  <ng-container *ngFor="let pokemon of pokemon$ | async">
+  <ng-container *ngFor="let pokemon of pokemon$ | async | filter: page : search">
     <div class="pokemon-container" (click)="navigateTo('pokemon-view/' + pokemon.id)">
       <div class="image-container">
         <img

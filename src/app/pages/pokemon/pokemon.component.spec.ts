@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PokemonComponent } from './pokemon.component';
-import { HttpClientModule} from "@angular/common/http";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {StoreModule} from "@ngrx/store";
 
 describe('PokemonComponent', () => {
   let component: PokemonComponent;
@@ -9,7 +10,7 @@ describe('PokemonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ PokemonComponent, HttpClientModule ]
+      imports: [ PokemonComponent, HttpClientTestingModule, StoreModule.forRoot() ]
     })
       .compileComponents();
 

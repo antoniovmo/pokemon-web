@@ -5,9 +5,6 @@ import {Router} from "@angular/router";
 // Services
 import {PokemonService} from "../../services/pokemon.service";
 
-// Interfaces
-import {ResultPokemon} from "../../interfaces/pokemon";
-
 // Components
 import {SearchPokemonComponent} from "./search-pokemon/search-pokemon.component";
 
@@ -18,14 +15,15 @@ import {Observable} from "rxjs";
 import {AppState} from "../../state/app.state";
 
 // NgRx
-import {Store} from "@ngrx/store";
-import {selectLoading, selectPokemonList} from "../../state/selectors/pokemon.selector";
-import {fetchedPokemonList, isLoading} from "../../state/actions/pokemon.actions";
+import { Store } from "@ngrx/store";
+import { selectLoading, selectPokemonList } from "../../state/selectors/pokemon.selector";
+import { isLoading} from "../../state/actions/pokemon.actions";
+import {FilterPipe} from "../../pipes/filter.pipe";
 
 @Component({
   selector: 'app-pokemon',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, SearchPokemonComponent],
+  imports: [CommonModule, NgOptimizedImage, SearchPokemonComponent, FilterPipe],
   templateUrl: './pokemon.component.html',
   styleUrls: ['./pokemon.component.css']
 })
@@ -42,9 +40,9 @@ export class PokemonComponent implements OnInit {
   loading$: Observable<boolean> = new Observable();
   pokemon$: Observable<any> = new Observable();
 
+  // Filter parameters
+  page = 0;
   search = '';
-
-  mArray: Array<ResultPokemon> = new Array<ResultPokemon>
 
   ngOnInit(): void {
     this.initPokemonList()
@@ -57,16 +55,20 @@ export class PokemonComponent implements OnInit {
 
   initPokemonList() {
     this.initLoading()
-
     this.pokemon$ = this.store.select(selectPokemonList)
-
-/*    this.pokemon.fetchAllPokemon().subscribe( rPokemon => {
-      this.mArray = [...rPokemon]
-    })*/
   }
 
   filterPokemonList(rSearch: string) {
     this.search = rSearch;
+  }
+
+  nextPage() {
+    this.page += 5;
+  }
+
+  prevPage() {
+    if ( this.page > 0 )
+      this.page -= 5;
   }
 
 

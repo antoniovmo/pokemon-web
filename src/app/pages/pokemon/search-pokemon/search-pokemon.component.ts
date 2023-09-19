@@ -48,12 +48,20 @@ export class SearchPokemonComponent implements OnInit, OnDestroy {
   initForm() {
     this.group = this.formBuilder.group(this.createForm());
 
-    this.group.get('search')!.valueChanges.pipe(debounceTime(1000), takeUntil(this.global$))
+    this.group.get('search')!.valueChanges.pipe(debounceTime(500), takeUntil(this.global$))
       .subscribe((rSearch) => {
-        if (rSearch)
-          this.searchEvent.emit(rSearch);
-        else
-          this.searchEvent.emit('');
+          if (rSearch) {
+            if (rSearch.length >= 3)
+              this.searchEvent.emit(rSearch);
+            else
+              this.searchEvent.emit('');
+          } else {
+            this.searchEvent.emit('');
+          }
       });
+  }
+
+  checkMinLengthForm( pField: string ) {
+    return this.group.controls[pField].errors?.['minlength']
   }
 }

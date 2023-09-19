@@ -31,16 +31,16 @@ export class ViewPokemonComponent implements OnInit {
   mPokemon!: Pokemon;
   ngOnInit(): void {
     this.activeRoute.params.subscribe((res) => {
-      this.pokemon.fetchPokemonInformation(res["id"]).subscribe(r => {
-        this.transformResultPokemon(r)
+      this.pokemon.fetchPokemonInformation(res["id"]).subscribe((rPokemon: any) => {
+        this.transformResultPokemon(rPokemon)
       });
     });
   }
 
-  private transformResultPokemon(rPokemon: any){
+  private transformResultPokemon(rPokemon: Pokemon){
     this.mPokemon = rPokemon
 
-    this.mPokemon.evolution_chain = this.mPokemon.evolution_chain!.filter(element => {
+    this.mPokemon.evolution_chain = this.mPokemon.evolution_chain?.filter(element => {
       return Object.keys(element).length !== 0;
     });
 

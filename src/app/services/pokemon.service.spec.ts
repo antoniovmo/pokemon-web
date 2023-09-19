@@ -26,7 +26,7 @@ describe('PokemonService', () => {
 
   it('fetch all pokemon should get status 200 OK', (done: DoneFn) => {
 
-    let mockAllPokemon: FetchAllPokemon = {
+    const mockAllPokemon: FetchAllPokemon = {
       "count": 1281,
       "results": [
         {
@@ -40,7 +40,7 @@ describe('PokemonService', () => {
       ]
     }
 
-    let mockResultPokemon: ResultPokemon[] = [
+    const mockResultPokemon: ResultPokemon[] = [
       {
         "id": "1",
         "name": "bulbasaur",
