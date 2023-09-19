@@ -1,1 +1,133 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  font-family: "Roboto Mono", monospace;
+  overflow-x: hidden;
+  position: relative;
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* text style */
+
+.big-title {
+  font-size: 5vw;
+}
+
+.big-subtitle {
+  font-size: 3vw;
+}
+
+.mid-subtitle {
+  font-size: 2vw;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.center-text {
+  text-align: center;
+}
+
+
+/* margin */
+
+.top-1-space {
+  margin-top: 1em;
+}
+
+.top-2-space {
+  margin-top: 2em;
+}
+
+.top-3-space {
+  margin-top: 3em;
+}
+
+.top-4-space {
+  margin-top: 4em;
+}
+
+.bottom-1-space {
+  margin-bottom: 1em;
+}
+
+.bottom-2-space {
+  margin-bottom: 2em;
+}
+
+.bottom-3-space {
+  margin-bottom: 3em;
+}
+
+.bottom-4-space {
+  margin-bottom: 4em;
+}
+
+
+/* button */
+
+.button-style {
+  width: 30%;
+  align-items: center;
+  height: 10px;
+  border: 2px solid #222;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1;
+  color: #222;
+  text-decoration: none;
+  background: none;
+  cursor: pointer;
+  padding: 16px 32px;
+  margin: 10px 20px 0 0;
+  display: inline-block;
+  outline: none;
+  position: relative;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+.button-style:after {
+  top: 0;
+  left: 0;
+  background: #222;
+  content: "";
+  position: absolute;
+  z-index: -1;
+  transition: all 0.3s;
+}
+.button-style:hover,
+.button-style:active {
+  color: #ababab !important;
+}
+.button-style:active {
+  transition: all 0.1s;
+  transform: scale(0.9);
+  outline: 0;
+}
+
+
+
+@media only screen and (max-width: 767px) {
+
+  .button-style {
+    font-size: 12px;
+    width: 20%;
+    height: 10px;
+  }
+
+  .big-title {
+    font-size: 30px !important;
+  }
+
+  .big-subtitle {
+    font-size: 25px !important;
+  }
+
+  .mid-subtitle {
+    font-size: 18px !important;
+  }
+
+}

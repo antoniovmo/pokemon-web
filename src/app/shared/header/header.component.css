@@ -1,0 +1,33 @@
+.header-section {
+  position: sticky;
+  background: #e5514e;
+  top: 0;
+  height: 5.5rem;
+  z-index: 1;
+  padding: 0;
+}
+
+.header-section {
+  display: flex;
+  align-items: center;
+  padding-left: 3rem;
+}
+
+.poke-logo {
+  max-width: 140px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #000;
+}
+
+@media only screen and (max-width: 767px) {
+  .header-section {
+    padding-left: 0;
+    justify-content: center;
+    align-items: center;
+  }
+}
+

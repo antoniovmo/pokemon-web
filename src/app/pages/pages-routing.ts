@@ -9,20 +9,20 @@ export const PagesRoutes: Routes = [
     component: PagesComponent,
     children : [
       {
-        path: 'list',
+        path: 'pokemon-list',
         title: 'Pokemon List',
         loadComponent: () => import('./pokemon/pokemon.component')
           .then(m => m.PokemonComponent),
       },
       {
-        path: 'view/:id',
+        path: 'pokemon-view/:id',
         title: 'Pokemon View',
         loadComponent: () => import('./pokemon/view-pokemon/view-pokemon.component')
           .then(m => m.ViewPokemonComponent),
       },
       {
         path: '**',
-        redirectTo: 'list'
+        redirectTo: 'pokemon-list'
       }
     ]
   }

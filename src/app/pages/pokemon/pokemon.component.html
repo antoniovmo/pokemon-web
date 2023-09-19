@@ -1,0 +1,26 @@
+<div class="card-section">
+  <app-search-pokemon (searchEvent)="filterPokemonList($event)"></app-search-pokemon>
+  <a class="button-style" >Previous</a>
+  <a class="button-style" >Next</a>
+
+
+  <h1 *ngIf="loading$ | async">Loading</h1>
+
+  <ng-container *ngFor="let pokemon of pokemon$ | async">
+    <div class="pokemon-container" (click)="navigateTo('pokemon-view/' + pokemon.id)">
+      <div class="image-container">
+        <img
+          class="pokemon-image"
+          ngSrc="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png"
+          height="150"
+          width="150"
+          priority
+          alt="{{pokemon.name}}"
+        />
+      </div>
+      <div class="name-container">
+        <a class="pokemon-name">{{pokemon.name}} </a>
+      </div>
+    </div>
+  </ng-container>
+</div>

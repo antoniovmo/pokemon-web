@@ -1,0 +1,65 @@
+
+.card-section {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.card-header {
+  text-align: left;
+}
+
+.pokemon-information-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.pokemon-evolution-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.evolution-section {
+  text-align: center;
+}
+
+.information-section {
+  text-align: center;
+}
+
+.pokemon-circle-image {
+  object-fit: cover;
+  border-radius: 50%;
+  border-style: solid;
+  background: #f0f1f1;
+  border-color: #525252;
+}
+
+.pokemon-evolution-image {
+  object-fit: cover;
+}
+
+
+
+@media only screen and (max-width: 767px) {
+  .card-section {
+    width: 90%;
+  }
+
+  .button-style {
+    width: 90px !important;
+  }
+
+
+  .pokemon-circle-image {
+    width: 150px !important;
+    height: 150px !important;
+  }
+
+  .pokemon-evolution-image {
+    width: 150px !important;
+    height: 150px !important;
+  }
+
+}

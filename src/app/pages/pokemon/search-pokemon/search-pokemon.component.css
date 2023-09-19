@@ -1,0 +1,22 @@
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  margin: 1em;
+  padding: 15px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 15px;
+  border: 1px solid #c9c9c9;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+}
+
+/*.ng-invalid:not(form)  {
+  border: 5px solid #a94442;
+}*/
+

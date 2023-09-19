@@ -1,0 +1,42 @@
+
+.card-section {
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  box-sizing: border-box;
+  background: white;
+}
+
+.pokemon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-color: #f0f1f5 !important;
+  border-bottom: 1px solid;
+}
+
+.name-container {
+  width: 65%;
+}
+
+.image-container {
+  width: 35%;
+}
+
+.pokemon-name {
+  font-size: 20px;
+}
+
+.pokemon-image {
+  object-fit: scale-down;
+}
+
+
+@media only screen and (max-width: 767px) {
+  .card-section {
+    width: 95%;
+  }
+}
+
+

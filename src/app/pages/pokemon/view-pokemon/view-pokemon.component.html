@@ -1,0 +1,51 @@
+<div class="card-section" >
+  <div class="card-header top-2-space">
+    <div class="big-title">Detail Pokemon</div>
+    <a class="button-style" (click)="navigateTo('pokemon-list')">Back to list</a>
+  </div>
+
+  <div class="mid-subtitle center-text top-2-space">Basic Information</div>
+
+  <div *ngIf="mPokemon">
+    <div class="pokemon-information-container top-1-space" >
+
+      <div class="big-subtitle top-1-space bottom-1-space">{{ mPokemon.name }}</div>
+
+      <img
+        class="pokemon-circle-image"
+        ngSrc="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{mPokemon.id}}.png"
+        height="250"
+        width="250"
+        priority
+        alt="{{mPokemon.name}}"
+      />
+
+      <div class="information-section top-1-space">
+        <p><a class="bold-text">Base Experience: </a>{{ mPokemon.base_experience }}</p>
+        <p><a class="bold-text">Weight: </a>{{ mPokemon.weight }}</p>
+        <p><a class="bold-text">Height: </a>{{ mPokemon.height }}</p>
+      </div>
+    </div>
+
+    <div class="mid-subtitle center-text top-2-space">Evolution details</div>
+
+    <div class="pokemon-evolution-container top-1-space bottom-2-space">
+      <ng-container  *ngFor="let evolution_pokemon of mPokemon.evolution_chain">
+
+        <div class="evolution-section">
+          <img
+            class="pokemon-evolution-image"
+            ngSrc="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{evolution_pokemon.url}}.png"
+            height="250"
+            width="250"
+            priority
+            alt="{{evolution_pokemon.name}}"
+          />
+          <p><a class="bold-text"> {{ evolution_pokemon.name }}</a></p>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+
+</div>
